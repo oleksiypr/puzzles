@@ -90,10 +90,10 @@ def dist_sum(keys_path):
     return sum(lengths)
 
 
-assert dist_sum([]) == 0.
-assert dist_sum([A, A]) == 0.
-assert dist_sum([A, E]) == dist(A, E)
-assert dist_sum([E, A]) == dist(A, E)
+assert dist_sum([])        == 0.
+assert dist_sum([A, A])    == 0.
+assert dist_sum([A, E])    == dist(A, E)
+assert dist_sum([E, A])    == dist(A, E)
 assert dist_sum([E, A, T]) == length_EAT
 assert dist_sum([A, T, E]) == length_ATE
 
