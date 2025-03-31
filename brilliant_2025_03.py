@@ -45,8 +45,8 @@ def dist(k1, k2):
     return np.sqrt(dx**2 + dy**2 - 2*dx*dy*cos_a)
 
 
-assert dist((2, 2), (2, 2)) == 0.
 assert dist((0, 0), (0, 0)) == 0.
+assert dist((2, 2), (2, 2)) == 0.
 assert dist((0, 1), (2, 2)) == dist((2, 2), (0, 1))
 assert dist((1, 1), (2, 3)) == dist((2, 3), (1, 1))
 
@@ -57,6 +57,9 @@ L = 8, 1
 S = 1, 1
 T = 4, 2
 
+assert dist(A, E) + dist(E, T) >= dist(A, T)
+assert dist(T, A) + dist(A, E) >= dist(T, E)
+assert dist(E, T) + dist(T, A) >= dist(E, A)
 
 length_EAT = dist(E, A) + dist(A, T)
 length_ATE = dist(A, T) + dist(T, E)
@@ -75,7 +78,7 @@ else:
 def dist_sum(keys_path):
     """
     Computes length of keys path as a sum of edges:
-    length([A, T, E, B]) -> AT + TE + EB
+    dist_sum([A, T, E, B]) -> AT + TE + EB
     :param keys_path: list of key coordinates, ex.: [(0, 0), (0, 1), (2, 2)]
     :return: length of the path
     """
